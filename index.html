@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sweets Complete | Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name ="description" content ="Sweets Complete">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<!--
+<link rel="stylesheet" href="css/layout.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<link rel="stylesheet" href="css/mystyle.css" type="text/css">
+-->
+<link rel="shortcut icon" href="images/favicon.ico?v=2" type="image/x-icon" />
+</head>
+<body ng-app="mySweet">
+  <!-- Add your site or application content here -->
+<div id="wrapper">
+    <div id="maincontent">
+        <div ng-include='"templates/header.html"'></div>
+        <div ng-view></div>
+   </div><!-- maincontent -->
+   <div ng-include='"templates/footer.html"'></div>
+
+</div><!-- wrapper -->
+<!--Vendor: Angular, followed by our custom js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+<!--our websie Javascripts -->
+<script src="js/main.js"></script>
+</body>
+</html>
