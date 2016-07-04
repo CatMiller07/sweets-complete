@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="mySweet" >
 <head>
 <meta charset="utf-8">
 <title>Sweets Complete | Home</title>
@@ -7,15 +7,10 @@
 <meta name ="description" content ="Sweets Complete">
 <meta name="keywords" content="">
 <link rel="stylesheet" href="css/main.css" type="text/css">
-<!--
-<link rel="stylesheet" href="css/layout.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<link rel="stylesheet" href="css/styles.css" type="text/css">
-<link rel="stylesheet" href="css/mystyle.css" type="text/css">
--->
 <link rel="shortcut icon" href="images/favicon.ico?v=2" type="image/x-icon" />
 </head>
-<body ng-app="mySweet">
+
+<body>
   <!-- Add your site or application content here -->
 <div id="wrapper">
     <div id="maincontent">
@@ -23,8 +18,8 @@
         <div ng-view></div>
    </div><!-- maincontent -->
    <div ng-include='"templates/footer.html"'></div>
-
 </div><!-- wrapper -->
+
 <!--Vendor: Angular, followed by our custom js -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>

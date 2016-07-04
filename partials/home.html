@@ -1,13 +1,14 @@
 <div class="content">
 
-	<div class="search left">
+	<div class="search left" ng-controller="ProductCtrl">
 		<form name="search" method="get" action="search.html" id="search">
-			<input ng-model="query" type="text" value="keywords" name="keyword"
+        
+			<input ng-model="searchProd" type="text" value="keywords" name="keyword"
 			 placeholder="keywords" class="s0"  />
 			<br />
-			<select name="title" class="s2" ng-model="query"
-			    ng-options="query as product.Fudge for product in products">
-      </select>
+			<select name="title" class="s2" ng-model="selectedProd"
+			   ng-options="product.Sku for product in products | filter:searchProd ">
+            </select>
 
 	    <input type="submit" name="search" value="Search Products" class="button marT5" />
 			<input type="hidden" name="page" value="search" />
@@ -24,13 +25,13 @@
 	</div>
 	<br class="clear"/>
 	<br/>
-  <div class="product-list">
+  <div class="product-list" ng-controller="ProductCtrl">
 		<h2>Some Specials</h2>
 	   <ul class="specials">
        <li ng-repeat="special in specials |limitTo: 3">
 				 <div class="image">
 					 <a href="detail.html">
-						 <img src ="{{special.Img}}" alt="{{special.Fudge}}" width="190" height="130"/>
+						 <img ng-src ="{{special.Img}}" alt="{{special.Fudge}}" width="190" height="130"/>
 					 </a>
 				 </div>
 				 <div class="detail">

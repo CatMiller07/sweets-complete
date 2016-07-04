@@ -1,0 +1,51 @@
+<div class="content">
+
+<div id="leftnav">
+	<div class="search" ng-controller="ProductCtrl">
+
+		<form name="search" method="get" action="search.html" id="search">
+         <input ng-model="searchString" type="text" value="keywords" name="keyword"
+			 placeholder="keywords" class="s0"  />
+			<br />
+            <select name="title" class="s2" ng-model="selectedProd"
+			     ng-options="product.Sku for product in products | filter:searchString">
+			<br />
+			<input type="submit" name="search" value="Search Products" class="button marT5" />
+			<input type="hidden" name="page" value="search" />
+		</form>
+		<br /><br />
+		
+		<h3>About Us</h3><br/>
+		<p class="width180">Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer, Lorem ipsum dolor sit amet consectetuer
+	  Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer.  <a href="about.html">Read More >> </a></p>
+	</div>
+</div><!-- leftnav -->
+
+
+<div id="rightnav">
+
+	<div class="product-list">
+		<h2>Our Products</h2>
+		<a class="pages" href="products.html">&lt;prev</a>
+		&nbsp;|&nbsp;
+		<a class="pages" href="products.html">next&gt;</a>
+			<ul>
+	          <li ng-repeat="product in products  |limitTo: 9">
+				 <div class="image">
+					 <a href="detail.html">
+						 <img ng-src ="{{product.Img}}" alt="{{product.Sku}}" width="190" height="130"/>
+					 </a>
+				 </div>
+				 <div class="detail">
+					  <p class="name"> <a href="detail.html">{{product.Sku}} </a></p>
+						<p class="view"> <a href="detail.html">purchase</a> | <a href="detail.html">view details >></a></p>
+	     		</div>
+              </li>
+		   </ul>
+	</div><!-- product-list -->
+	
+	
+</div><!-- rightnav -->
+
+<br class="clear-all"/>
+</div><!-- content -->

@@ -1,0 +1,55 @@
+<div class="content">
+
+<div id="leftnav">
+
+<div class="search">
+
+  <form name="search" method="get" action="search.html" id="search">
+    <input ng-model="searchProd" type="text" value="keywords" name="keyword"
+			                 placeholder="keywords" class="s0"  />
+    <br/>
+    <select name="title" class="s2" ng-model="selectedProd"
+		    ng-options="product.Sku for product in products | filter:searchProd">
+    </select>
+    <br />
+    <input type="submit" name="search" value="Search Products" class="button marT5" />
+    <input type="hidden" name="page" value="search" />
+  </form>
+  <br /><br />
+
+  <h3>About Us</h3><br/>
+  <p class="width180">Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer, Lorem ipsum dolor sit amet consectetuer
+  Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer. Lorem ipsum dolor sit amet consectetuer.  <a href="about">Read More >> </a></p>
+</div>
+</div><!-- leftnav -->
+
+
+<div id="rightnav">
+
+<div class="product-list">
+  <h2>Products on Special</h2>
+  <!-- page next and prev -->
+  <a class="pages" href="specials.html">&lt;prev</a>
+  &nbsp;|&nbsp;
+  <a class="pages" href="specials.html">next&gt;</a>
+  <!-- list of products on special -->
+   <ul ng-controller="ProductCtrl">
+   <li ng-repeat="special in specials" >
+             <div class="image">
+                 <a href="detail.html">
+                     <img src ="{{special.Img}}" alt="{{special.Fudge}}" width="190" height="130"/>
+                 </a>
+             </div>
+             <div class="detail">
+                  <p class="name"> <a href="detail.html">{{special.Fudge}} </a></p>
+                    <p class="view"> <a href="detail.html">purchase</a> | <a href="detail.html">view details >></a></p>
+            </div>
+   </li>
+ </ul>
+</div><!-- product-list -->
+
+
+</div><!-- rightnav -->
+
+<br class="clear-all"/>
+</div><!-- content -->
