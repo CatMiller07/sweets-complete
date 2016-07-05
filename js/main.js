@@ -53,6 +53,10 @@ app.config(['$routeProvider',function($routeProvider) {
 				templateUrl:"partials/products.html",
 				controller:'ProductCtrl'
 			})
+				.when("/login",{
+				templateUrl:"partials/login.html",
+				controller:'ProductCtrl'
+			})
 			.when("/about",{
 					templateUrl:"partials/about.html",
 					controller:'ProductCtrl'
