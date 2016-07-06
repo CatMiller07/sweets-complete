@@ -105,9 +105,17 @@ app.config(['$routeProvider',function($routeProvider) {
 				templateUrl:"partials/tabs.html",
 				controller:'ProductCtrl'
 			})
-				.when("/login",{
+			.when("/login",{
 				templateUrl:"partials/login.html",
 				controller:'ProductCtrl'
+			})
+		.when("/members",{
+			templateUrl:"partials/members.html",
+			controller:'ProductCtrl'
+		 })
+		 .when("/addmember",{
+			 templateUrl:"partials/addmember.html",
+			 controller:'ProductCtrl'
 			})
 			.when("/about",{
 					templateUrl:"partials/about.html",
