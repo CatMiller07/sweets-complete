@@ -1,5 +1,53 @@
 // Sweets-complete
 var app = angular.module('mySweet',['ngRoute']);
+  //Define directives here
+app
+		.directive('tab', function() {
+		 return {
+		 restrict: 'E',
+		 transclude: true,
+		 template: '<div role="tabpanel" ng-show="active" ng-transclude></div>',
+		 require: '^tabset',
+		 scope: {
+			 heading: '@'
+		 },
+		 link: function(scope, elem, attr, tabsetCtrl) {
+			 scope.active = false
+			 tabsetCtrl.addTab(scope)
+		 }
+		}
+		})
+		.directive('tabset', function() {
+		 return {
+			 restrict: 'E',
+			 transclude: true,
+			 scope: { },
+			 templateUrl: 'templates/tabset.html',
+			 bindToController: true,
+			 controllerAs: 'tabset',
+			 controller: function() {
+				 var self = this
+				 self.tabs = []
+				 self.addTab = function addTab(tab) {
+				 self.tabs.push(tab)
+				 if(self.tabs.length ===1){
+						tab.active =true;
+				 }
+			 }
+			 self.select = function(selectedTab) {
+		 if(selectedTab.disabled) { return }
+
+		 angular.forEach(self.tabs, function(tab) {
+			 if(tab.active && tab !== selectedTab) {
+				 tab.active = false;
+			 }
+		 })
+
+		 selectedTab.active = true;
+		}
+		 }
+		}
+	});
 /*
 ** Configure the routes
 */
@@ -53,6 +101,10 @@ app.config(['$routeProvider',function($routeProvider) {
 				templateUrl:"partials/products.html",
 				controller:'ProductCtrl'
 			})
+			.when("/tabs",{
+				templateUrl:"partials/tabs.html",
+				controller:'ProductCtrl'
+			})
 				.when("/login",{
 				templateUrl:"partials/login.html",
 				controller:'ProductCtrl'
@@ -68,13 +120,13 @@ app.controller('ProductCtrl',['$scope','$http', function(scope, http){
 	   http.get('data/products.json').success(function(data){
 			      scope.products = data;
 				  //default to first product
-				  scope.selectedProduct = scope.products[0].Fudge;
+				  scope.selectedProduct = scope.products[0].Sku;
 		 });
-		 
+
 	    http.get('data/specials.json').success(function(data){
-			
-		         scope.specials = data;  
-				 console.log(scope.specials);        		  
+
+		         scope.specials = data;
+				 console.log(scope.specials);
      	});
 
 }]);
