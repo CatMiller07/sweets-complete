@@ -1,0 +1,46 @@
+	<div class="content">
+<br/>
+	<div class="product-list">
+		<h2>Shopping Basket</h2>
+		<br/>
+		<form action="#" method="POST">
+		<table>
+			<tr>
+				<th>Item No.</th><th>Product</th><th width="40%">Name</th><th>Amount</th><th width="10%">Price</th><th width="10%">Extended</th><th>&nbsp;</th>
+			</tr>
+			<tr  ng-repeat="product in products">
+				<td>{{product.SkuCode}}</td>
+				<td><a href="detail&id=00000019">
+					<img src="images/167_2835774.scale_20.JPG" alt=" Ambrosia Salad" width="60" height="60" />
+					</a>
+				</td>
+				<td> {{product.Sku}}</td>
+				<td>Qty: <br /><input type="text" value="1" name="qty[]" class="s0" size="2" /></td>
+				<td align="right"> {{product.Price | currency:"$"}}</td>
+				<td align="right">  <div id="extPrice"></div></td>
+				<td>
+					<table>
+					<tr>
+						<td>Remove</td>
+						<td><input type="checkbox" ng-model="remove" ng-checked="isChecked"
+                         name="remove[]" value="{{product.Sku}}" title="Remove" /></td>
+					</tr>
+					<tr>
+						<td>Update</td>
+						<td><input type="checkbox" ng-model="update" ng-checked="isUnChecked" name="update[]" value="{{product.Sku}}" title="Update" /></td>
+					</tr>
+					</table> 
+				</td>
+			</tr>
+			
+		<br/>
+		
+		<p align="center">
+			<input type="submit" name="back" value="Back to Shopping" class="button"/>
+			<input type="submit" name="change" value="Update" class="button"/>
+			<input type="submit" name="checkout" value="Checkout" class="button"/>
+		<p>
+		</form>
+	</div>
+
+</div><!-- content -->

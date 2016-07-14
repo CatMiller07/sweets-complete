@@ -1,15 +1,23 @@
 <div class="content">
 
 <br/>
-<div class="product-list">
+
 	<h2>Our Members</h2>
 	<br/>
 		<form name="search" method="get" action="members.html" id="search">
-			<input type="text" value="keywords" name="keyword" class="s0" />
-			<input type="submit" name="search" value="Search Members" class="button marL10" />
-			<input type="hidden" name="page" value="members" />
+            <div class="search left">
+		    	<input ng-model="searchMbr" type="text" value="keywords" name="keyword" class="s0" /><br>
+			    <select name="title" class="s2 0" ng-model="selectedMbr"
+					ng-options="member.name for member in members | filter:searchMbr ">
+			    </select>
+			    <br>
+			    <input type="submit" name="search" value="Search Members" class="button marT5" />
+			    <input type="hidden" name="page" value="members" />
+            </div>
 		</form>
 	<br/><br/>
+    <br/><br/>
+ <div class="product-list">
 	<a class="pages" href="members.html">&lt;prev</a>
 	&nbsp;|&nbsp;
 	<a class="pages" href="members.html">next&gt;</a>
@@ -17,79 +25,13 @@
 		<tr>
 			<th>Member ID</th><th>Name</th><th>City</th><th>Email</th>
 		</tr>
-				<tr>
-			<td>00000062</td>
-			<td><img src="images/m.gif" /> Aileen Duncan</td>
-			<td>Needmore</td>
-			<td><img src="images/e.gif" /> aileen.duncan@westnet.net</td>
-		</tr>
-				<tr>
-			<td>00000047</td>
-			<td><img src="images/m.gif" /> Alonzo Sullivan</td>
-			<td>Credit</td>
-			<td><img src="images/e.gif" /> alonzo.sullivan@fastmedia.net</td>
-		</tr>
-				<tr>
-			<td>00000009</td>
-			<td><img src="images/m.gif" /> Armando Barlow</td>
-			<td>Revenge</td>
-			<td><img src="images/e.gif" /> armando.barlow@cablecom.com</td>
-		</tr>
-				<tr>
-			<td>00000078</td>
-			<td><img src="images/m.gif" /> Blanca Le</td>
-			<td>Diagonal</td>
-			<td><img src="images/e.gif" /> blanca.le@telecom.com</td>
-		</tr>
-				<tr>
-			<td>00000008</td>
-			<td><img src="images/m.gif" /> Brian Crawford</td>
-			<td>Honk Hill</td>
-			<td><img src="images/e.gif" /> brian.crawford@fastcom.net</td>
-		</tr>
-				<tr>
-			<td>00000035</td>
-			<td><img src="images/m.gif" /> Camille Perez</td>
-			<td>Honduras</td>
-			<td><img src="images/e.gif" /> camille.perez@northnet.net</td>
-		</tr>
-				<tr>
-			<td>00000024</td>
-			<td><img src="images/m.gif" /> Cecelia Case</td>
-			<td>Dogpatch</td>
-			<td><img src="images/e.gif" /> cecelia.case@southmedia.net</td>
-		</tr>
-				<tr>
-			<td>00000038</td>
-			<td><img src="images/m.gif" /> Celeste Justice</td>
-			<td>Manumuskin</td>
-			<td><img src="images/e.gif" /> celeste.justice@southcom.com</td>
-		</tr>
-				<tr>
-			<td>00000053</td>
-			<td><img src="images/m.gif" /> Chris Bradley</td>
-			<td>Knob Lick</td>
-			<td><img src="images/e.gif" /> chris.bradley@cablemedia.com</td>
-		</tr>
-				<tr>
-			<td>00000022</td>
-			<td><img src="images/m.gif" /> Coleen Walker</td>
-			<td>Chittyville</td>
-			<td><img src="images/e.gif" /> coleen.walker@fastmedia.com</td>
-		</tr>
-				<tr>
-			<td>00000001</td>
-			<td><img src="images/m.gif" /> Conrad Perry</td>
-			<td>Birdseye</td>
-			<td><img src="images/e.gif" /> conrad.perry@fastmedia.com</td>
-		</tr>
-				<tr>
-			<td>00000003</td>
-			<td><img src="images/m.gif" /> Darrel Roman</td>
-			<td>Flushing</td>
-			<td><img src="images/e.gif" /> darrel.roman@southcom.net</td>
-		</tr>
-			</table>
+		 <tr ng-repeat="member in members">
+			<td>{{member.MbrID}}</td>
+			<td><img ng-src="{{member.Img}}" />&nbsp{{member.name}} </td>
+			<td>{{member.city}}</td>
+			<td><img src="{{member.Img2}}" />&nbsp;{{member.email}}</td>
+
+	</table>
 	<br/>
 	<a href="#addmember" class="abutton">&nbsp;&nbsp;&nbsp;Member Sign Up&nbsp;&nbsp;&nbsp;</a>
 

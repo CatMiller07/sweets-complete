@@ -109,14 +109,18 @@ app.config(['$routeProvider',function($routeProvider) {
 				templateUrl:"partials/login.html",
 				controller:'ProductCtrl'
 			})
-		.when("/members",{
+		   .when("/members",{
 			templateUrl:"partials/members.html",
 			controller:'ProductCtrl'
-		 })
-		 .when("/addmember",{
+		   })
+		   .when("/addmember",{
 			 templateUrl:"partials/addmember.html",
 			 controller:'ProductCtrl'
 			})
+	       .when("/cart",{
+			 templateUrl:"partials/cart.html",
+			 controller:'ProductCtrl'
+			})		
 			.when("/about",{
 					templateUrl:"partials/about.html",
 					controller:'ProductCtrl'
@@ -134,7 +138,12 @@ app.controller('ProductCtrl',['$scope','$http', function(scope, http){
 	    http.get('data/specials.json').success(function(data){
 
 		         scope.specials = data;
-				 console.log(scope.specials);
+				 //console.log(scope.specials);
      	});
 
+    	http.get('data/members.json').success(function(data){
+     		scope.members = data;
+		    //console.log(scope.members);
+	   });
+    
 }]);
